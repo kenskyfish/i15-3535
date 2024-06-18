@@ -1,0 +1,28 @@
+---
+# Source: mediawiki/charts/mariadb/templates/primary/svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: locawiki-mariadb
+  namespace: "locawiki"
+  labels:
+    app.kubernetes.io/instance: locawiki
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: mariadb
+    app.kubernetes.io/version: 11.3.2
+    helm.sh/chart: mariadb-18.2.2
+    app.kubernetes.io/component: primary
+  annotations:
+spec:
+  type: ClusterIP
+  sessionAffinity: None
+  ports:
+    - name: mysql
+      port: 3306
+      protocol: TCP
+      targetPort: mysql
+      nodePort: null
+  selector:
+    app.kubernetes.io/instance: locawiki
+    app.kubernetes.io/name: mariadb
+    app.kubernetes.io/component: primary

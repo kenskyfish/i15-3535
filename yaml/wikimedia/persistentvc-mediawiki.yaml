@@ -1,0 +1,19 @@
+---
+# Source: mediawiki/templates/mediawiki-pvc.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: locawiki-mediawiki-mediawiki
+  namespace: "locawiki"
+  labels:
+    app.kubernetes.io/instance: locawiki
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: mediawiki
+    app.kubernetes.io/version: 1.41.1
+    helm.sh/chart: mediawiki-20.2.6
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "8Gi"
