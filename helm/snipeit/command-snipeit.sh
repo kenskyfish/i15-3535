@@ -1,0 +1,1 @@
+helm install snipeit t3n/snipeit --namespace snipeit --create-namespace --set config.snipeit.key="base64:2Kb4BZq/FbiuLqVFqdBwt00S1u8BJdsNmXLNzKI2pj0="
