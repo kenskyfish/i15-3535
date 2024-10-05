@@ -1,10 +1,17 @@
 pipeline {
-  agent any
-  stages {
-    stage ('Initialize') {
-      steps {
-        echo 'Placeholder.'
-      }
+    agent {
+        label '!bad'
     }
-  }
+
+    environment {
+        HEAVY_ARTILLERY = 'false'
+    }
+    
+    stages {
+        stage('Initialize') {
+            steps {
+                echo 'Placeholder.'
+            }
+        }
+    }
 }

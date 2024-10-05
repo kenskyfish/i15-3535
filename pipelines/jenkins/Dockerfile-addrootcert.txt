@@ -1,0 +1,7 @@
+FROM jenkins/inbound-agent:3148.v532a_7e715ee3-1-jdk11
+COPY ca-chain.crt /usr/local/share/ca-certificates/
+USER root
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN update-ca-certificates
+RUN ${JAVA_HOME}/bin/keytool -import -trustcacerts -cacerts -noprompt -storepass changeit -alias jenkins-ca -file /usr/local/share/ca-certificates/ca-chain.crt

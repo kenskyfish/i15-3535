@@ -1,0 +1,5 @@
+spec:
+  hostAliases:
+    - ip: 10.152.183.241
+      hostnames:
+        - "jenkins"

@@ -1,0 +1,13 @@
+spec:
+   containers:
+   - name: docker
+     image: docker:18.06.1
+     command: ["tail", "-f", "/dev/null"]
+     imagePullPolicy: Always
+     volumeMounts:
+       - name: docker
+         mountPath: /var/run/docker.sock
+   volumes:
+   - hostPath:
+      path: "/var/run/docker.sock"
+     name: "docker"
